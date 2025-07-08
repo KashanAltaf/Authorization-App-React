@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'https://authorization-app-react-server.vercel.app/',
+  baseURL: 'https://authorization-app-react-server-production.up.railway.app',
   withCredentials: true, // ✅ Add this
 });
 
