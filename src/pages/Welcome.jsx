@@ -1,5 +1,6 @@
+// src/pages/Welcome.jsx
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import '../styles/style.css';
 
@@ -13,8 +14,12 @@ export default function Welcome() {
     navigate('/');
   };
 
-  const goToContacts = () => {
-    navigate('/contacts');
+  // toggle menu and log state
+  const toggleMenu = () => {
+    setMenuOpen(open => {
+      console.log('menuOpen →', !open);
+      return !open;
+    });
   };
 
   const roleText = user?.role
@@ -33,7 +38,7 @@ export default function Welcome() {
       <div className="welcome-box">
         <button
           className="hamburger-btn"
-          onClick={() => setMenuOpen(o => !o)}
+          onClick={toggleMenu}
           aria-label="Toggle menu"
         >
           ☰
@@ -41,12 +46,9 @@ export default function Welcome() {
 
         {menuOpen && (
           <div className="menu-dropdown">
-            <button
-              className="menu-item-btn"
-              onClick={goToContacts}
-            >
+            <Link to="/contacts" className="menu-item-btn">
               Contact List
-            </button>
+            </Link>
           </div>
         )}
 
