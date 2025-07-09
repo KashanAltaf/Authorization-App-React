@@ -776,6 +776,7 @@ button.ghost {
 }
 
 .welcome-box {
+  position: relative;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -783,7 +784,7 @@ button.ghost {
   align-items: center;
   text-align: center;
   padding: 2rem;
-  width: 100vh;
+  width: 100%;
 }
 
 .welcome-box h1 {
@@ -814,7 +815,7 @@ button.ghost {
   background: #fff;
   border: 1px solid #ccc;
   border-radius: 6px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   z-index: 10;
 }
 
@@ -829,6 +830,7 @@ button.ghost {
   cursor: pointer;
   color: #333;
 }
+
 
 .menu-item-btn:hover {
   background: #f0f0f0;
