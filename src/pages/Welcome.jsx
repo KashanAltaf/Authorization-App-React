@@ -14,11 +14,10 @@ export default function Welcome() {
     navigate('/');
   };
 
-  // toggle menu and log state
   const toggleMenu = () => {
-    setMenuOpen(open => {
-      console.log('menuOpen →', !open);
-      return !open;
+    setMenuOpen(o => {
+      console.log('menuOpen →', !o);
+      return !o;
     });
   };
 
@@ -29,13 +28,7 @@ export default function Welcome() {
   return (
     <div className="welcome-page">
       <header className="header">
-        <h2>Welcome, <span id="roleText">{roleText}</span>!</h2>
-        <button className="logout-btn" onClick={handleLogout}>
-          Logout
-        </button>
-      </header>
-
-      <div className="welcome-box">
+        {/* Move hamburger into header */}
         <button
           className="hamburger-btn"
           onClick={toggleMenu}
@@ -44,14 +37,22 @@ export default function Welcome() {
           ☰
         </button>
 
+        <h2>Welcome, <span id="roleText">{roleText}</span>!</h2>
+
+        <button className="logout-btn" onClick={handleLogout}>
+          Logout
+        </button>
+
         {menuOpen && (
-          <div className="menu-dropdown">
+          <div className="menu-dropdown header-dropdown">
             <Link to="/contacts" className="menu-item-btn">
               Contact List
             </Link>
           </div>
         )}
+      </header>
 
+      <div className="welcome-box">
         <p>You have successfully logged in.</p>
       </div>
     </div>
