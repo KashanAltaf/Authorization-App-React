@@ -1,4 +1,3 @@
-// src/pages/Welcome.jsx
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
@@ -14,13 +13,6 @@ export default function Welcome() {
     navigate('/');
   };
 
-  const toggleMenu = () => {
-    setMenuOpen(o => {
-      console.log('menuOpen →', !o);
-      return !o;
-    });
-  };
-
   const roleText = user?.role
     ? user.role.charAt(0).toUpperCase() + user.role.slice(1)
     : 'User';
@@ -28,10 +20,10 @@ export default function Welcome() {
   return (
     <div className="welcome-page">
       <header className="header">
-        {/* Move hamburger into header */}
+        {/* Hamburger on the left */}
         <button
           className="hamburger-btn"
-          onClick={toggleMenu}
+          onClick={() => setMenuOpen(o => !o)}
           aria-label="Toggle menu"
         >
           ☰
@@ -42,15 +34,17 @@ export default function Welcome() {
         <button className="logout-btn" onClick={handleLogout}>
           Logout
         </button>
-
-        {menuOpen && (
-          <div className="menu-dropdown header-dropdown">
-            <Link to="/contacts" className="menu-item-btn">
-              Contact List
-            </Link>
-          </div>
-        )}
       </header>
+
+      {/* Side menu */}
+      <nav className={`side-menu${menuOpen ? ' open' : ''}`}>
+        <ul>
+          <li><Link to="/welcome" onClick={() => setMenuOpen(false)}>Home</Link></li>
+          <li><Link to="/contacts" onClick={() => setMenuOpen(false)}>Contact List</Link></li>
+          <li><Link to="/reset-password" onClick={() => setMenuOpen(false)}>Reset Password</Link></li>
+          <li><button onClick={() => { setMenuOpen(false); handleLogout(); }}>Logout</button></li>
+        </ul>
+      </nav>
 
       <div className="welcome-box">
         <p>You have successfully logged in.</p>
