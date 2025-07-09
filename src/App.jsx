@@ -5,6 +5,7 @@ import ForgotPassword from './pages/ForgotPassword';
 import VerifyOtp from './pages/VerifyOtp';
 import ResetPassword from './pages/ResetPassword';
 import Welcome from './pages/Welcome';
+import Contacts from './pages/Contacts';
 
 function Protected({ children }) {
   const { token } = useAuth();
@@ -23,6 +24,10 @@ export default function App() {
           <Route
             path="/welcome"
             element={<Protected><Welcome /></Protected>}
+          />
+          <Route
+            path="/contacts"
+            element={<Protected><Contacts /></Protected>} // ✅ Protected route
           />
         </Routes>
       </AuthProvider>
