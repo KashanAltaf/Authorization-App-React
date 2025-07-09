@@ -33,7 +33,7 @@ export default function Welcome() {
       <div className="welcome-box">
         <button
           className="hamburger-btn"
-          onClick={() => setMenuOpen(open => !open)}
+          onClick={() => setMenuOpen(o => !o)}
           aria-label="Toggle menu"
         >
           ☰

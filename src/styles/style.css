@@ -768,6 +768,7 @@ button.ghost {
 }
 
 /* Page */
+/* Page wrapper */
 .welcome-page {
   display: flex;
   flex-direction: column;
@@ -775,6 +776,44 @@ button.ghost {
   background: #f6f5f7;
 }
 
+/* Fixed header */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #ff416c;
+  color: #fff;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  z-index: 5;
+}
+
+.header h2 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.logout-btn {
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.2s, color 0.2s;
+}
+
+.logout-btn:hover {
+  background: #fff;
+  color: #ff416c;
+}
+
+/* Centered box below header */
 .welcome-box {
   position: relative;
   flex: 1;
@@ -782,32 +821,23 @@ button.ghost {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 6rem 2rem 2rem; /* top padding to clear fixed header */
   text-align: center;
-  padding: 2rem;
-  width: 100%;
 }
 
-.welcome-box h1 {
-  margin-bottom: 1rem;
-  font-size: 2rem;
-  color: #333;
-}
-
-.welcome-box p {
-  color: #555;
-}
-
-.hamgburger-btn {
+/* Hamburger toggle in top-right of box */
+.hamburger-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
   background: transparent;
   border: none;
   font-size: 1.5rem;
   cursor: pointer;
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
   color: #333;
 }
 
+/* Dropdown menu */
 .menu-dropdown {
   position: absolute;
   top: 3rem;
@@ -819,6 +849,7 @@ button.ghost {
   z-index: 10;
 }
 
+/* Dropdown items */
 .menu-item-btn {
   display: block;
   width: 100%;
@@ -831,7 +862,13 @@ button.ghost {
   color: #333;
 }
 
-
 .menu-item-btn:hover {
   background: #f0f0f0;
+}
+
+/* Success text */
+.welcome-box p {
+  color: #555;
+  font-size: 1.1rem;
+  margin-top: 1rem;
 }
